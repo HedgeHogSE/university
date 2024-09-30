@@ -1,8 +1,7 @@
 package university.oop.ex1_2;
 import university.oop.ex1_1.FullName;
 
-public class Human
-{
+public class Human {
     public FullName fullName;
     public int height;
 
