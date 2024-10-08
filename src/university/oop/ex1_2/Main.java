@@ -10,8 +10,10 @@ public class Main {
         Line line3 = new Line(line1.point1, line2.point2);
         System.out.printf("l1: %s, l2: %s, l3: %s%n",line1, line2, line3);
 
-        line1.point1 = new Point(2,4);
-        line2.point2 = new Point(35,10);
+        line1.point1.x = 2;
+        line1.point1.y = 4;
+        line2.point2.x = 35;
+        line2.point2.y = 10;
         System.out.printf("l1: %s, l2: %s, l3: %s%n",line1, line2, line3);
 
         Human human = new Human(new FullName("Клеопатра"), 159);
