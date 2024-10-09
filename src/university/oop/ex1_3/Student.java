@@ -6,7 +6,7 @@ public class Student {
     public String name;
     public int[] ratings = {};
 
-    public Student (String name, int[] ratings) {
+    public Student (String name, int... ratings) {
         this.name = name;
         this.ratings = ratings;
     }
@@ -15,6 +15,7 @@ public class Student {
         if (this.ratings == null) return 0;
         int sum = Arrays.stream(this.ratings).sum();
         int count = this.ratings.length;
+        if (count == 0) return 0;
         return (double) (sum / count);
     }
 
@@ -26,6 +27,6 @@ public class Student {
     @Override
     public String toString() {
         if (ratings == null) return this.name + " без оценок";
-        return this.name + ": [" + Arrays.toString(this.ratings) + "]";
+        return this.name + ": " + Arrays.toString(this.ratings);
     }
 }
