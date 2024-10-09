@@ -13,18 +13,11 @@ public class Worker {
         this.department.addWorker(this);
     }
 
-    public String showWorkers() {
+
+    public String toString() {
         String res = "";
         for (int i = 0; i < department.currentCountWorkers; i++)
             res += department.workers[i].surname + " ";
         return res;
-    }
-
-    public String toString() {
-        if (department == null)
-            return surname + " doesn't work in someone department";
-        if (department.boss == this)
-            return surname + " is the boss of " + department.name + " department";
-        return surname + " works in " + department;
     }
 }

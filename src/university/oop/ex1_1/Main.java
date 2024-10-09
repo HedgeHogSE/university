@@ -4,15 +4,10 @@ package university.oop.ex1_1;
 public class Main {
     public static void main(String[] args) {
 
-        Time time1 = new Time(10);
+        Time time1 = new Time(60*60*24);
         System.out.println(time1);
-        Time time2 = new Time(10000);
+        Time time2 = new Time(23, 15, 15);
         System.out.println(time2);
-        Time time3 = new Time(86400 + 86400 + 10);
-        System.out.println(time3);
-        System.out.println(time3.fullSecond);
-        time3.fullSecond = 3;
-        System.out.println(time3);
 
     }
 }

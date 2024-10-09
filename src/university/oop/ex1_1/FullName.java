@@ -2,6 +2,7 @@ package university.oop.ex1_1;
 
 public class FullName {
     public String surname;
+
     public String name;
     public String patronymic;
 
@@ -16,8 +17,8 @@ public class FullName {
         this.name = name;
     }
 
-    public FullName(String surname) {
-        this.surname = surname;
+    public FullName(String name) {
+        this.name = name;
     }
 
     public String toString() {

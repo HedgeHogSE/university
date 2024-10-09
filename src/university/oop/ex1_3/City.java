@@ -11,6 +11,11 @@ public class City {
         this.name = name;
     }
 
+    public City(String name, Way[] ways) {
+        this.name = name;
+        this.ways = ways;
+    }
+
 
     public String toString() {
         return "Город " + this.name + "с путями: " + Arrays.toString(ways);
