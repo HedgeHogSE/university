@@ -22,13 +22,37 @@ public class FullName {
         this(null, name, null);
     }
 
+    private static boolean nullOrEmpty (String arg) {
+        return (arg == null || arg.isBlank());
+    }
+
 
     private boolean notNameless () {
         return (nullOrEmpty(this.name) && nullOrEmpty(this.surname) && nullOrEmpty(this.patronymic));
     }
 
-    private static boolean nullOrEmpty (String arg) {
-        return (arg == null || arg.isBlank());
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public String toString() {

@@ -24,8 +24,8 @@ public class Student {
     }
 
     public void addGrades (int... grades) throws Exception {
-        for (int i = 0; i < grades.length; i++) {
-            if (grades[i] > 5 || grades[i] < 2) {
+        for (int grade : grades) {
+            if (grade > 5 || grade < 2) {
                 throw new Exception("The rating should be between 2 and 5");
             }
         }

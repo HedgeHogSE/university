@@ -10,6 +10,6 @@ public class Way {
     }
 
     public String toString() {
-        return city.name + ": " + price;
+        return city.getName() + ": " + price;
     }
 }

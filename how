@@ -1,0 +1,54 @@
+[33mcommit edf37b7806e8acd169016df80b7ba23f01295d4b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Sun Oct 13 10:04:31 2024 +0400
+
+    public class ullame {
+
+[33mcommit d0fac79deba48af4b12ad05b9f910163569bd3e5[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Wed Oct 9 22:52:27 2024 +0400
+
+    changed the student
+
+[33mcommit 53bdf2090034fd26dad8045d44ff73b4ebbeea55[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Wed Oct 9 17:16:40 2024 +0400
+
+    added ex1_5 and improved some classes from other folders
+
+[33mcommit d0a64dbe9227d1d2013b6dd9922ae7f960167473[m
+Merge: a257689 de578bd
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Tue Oct 8 21:01:52 2024 +0400
+
+    corrected past homework
+
+[33mcommit a257689ffd1912a49e7daafd6179acc71a805c36[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Tue Oct 8 20:53:18 2024 +0400
+
+    corrected past homework
+
+[33mcommit c5643488d46b4510186de7e709bfb2678e0599f0[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Tue Oct 8 20:50:55 2024 +0400
+
+    corrected past homework
+
+[33mcommit de578bdb08af954ea5fc6d7c91eaea4afa9e9451[m
+Author: Ежак Александр Владимирович <230628@SSTUEDUDOM>
+Date:   Mon Sep 30 10:44:27 2024 +0400
+
+    added \n
+
+[33mcommit 74c2b164408be40bcc80d2d446b7c185ac8df7f8[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Sun Sep 29 21:54:09 2024 +0400
+
+    Added constructor with Human father
+
+[33mcommit 688eda92e25b73d98f4d60f53f69dd7957cf9c2b[m
+Author: HedgeHogSE <sasha.ezhak2006@gmail.com>
+Date:   Sun Sep 29 18:23:06 2024 +0400
+
+    first commit
