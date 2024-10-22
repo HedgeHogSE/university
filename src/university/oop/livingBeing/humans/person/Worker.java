@@ -13,6 +13,9 @@ public class Worker {
     }
 
     public String showColleaguesAsString () {
+        if (department == null) {
+            return String.format("Работник %s не привязан к отделу", this.name);
+        }
         StringBuilder res = new StringBuilder(String.format("Коллеги у %s в отделе %s: ", this.name, department.getName()));
         for (Worker worker : department.getWorkers()) {
             res.append(worker.name).append(" ");

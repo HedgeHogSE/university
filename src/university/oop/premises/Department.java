@@ -12,8 +12,9 @@ public class Department {
 
     public Department(String name, Worker boss) {
         this.name = name;
-        this.boss = boss;
-        workers.add(boss);
+        setBoss(boss);
+        //this.boss = boss;
+        //workers.add(boss);
     }
 
     public void addWorker(Worker worker) {
@@ -42,6 +43,10 @@ public class Department {
     }
 
     public void setBoss(Worker boss) {
+        if (this.boss == boss) return;
+        if (boss != null) {
+            addWorker(boss);
+        }
         this.boss = boss;
     }
 
@@ -50,7 +55,7 @@ public class Department {
     }
 
     public String listWorkers () {
-        if (this.workers.getFirst() == null) return "Нет сотрудников в отделе" + this.name;
+        if (this.workers.isEmpty()) return "Нет сотрудников в отделе" + this.name;
         StringBuilder res = new StringBuilder(String.format("В отделе %s: ", this.name));
         for (Worker worker : workers) {
             res.append(worker.getName()).append(" ");
@@ -60,7 +65,7 @@ public class Department {
 
     public String toString() {
         if (this.boss == null)
-            return this.name + " без начальника";
+            return "Отдел " + this.name + " без начальника";
         return this.name + " отдел, где начальником является " + this.boss.getName();
     }
 }
