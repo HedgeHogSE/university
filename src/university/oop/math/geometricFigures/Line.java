@@ -13,7 +13,7 @@ public class Line {
         this(new Point(x1,y1), new Point(x2,y2));
     }
 
-    public int lineLength () {
+    public int length () {
         double x = (double)(this.point1.x - this.point2.x);
         double y = (double)(this.point1.y - this.point2.y);
         return (int)Math.round(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));

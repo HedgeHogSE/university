@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Student {
     public String name;
-    public int[] grades = {};
+    private int[] grades = {};
 
-    public Student (String name, int... grades) throws Exception {
+    public Student (String name, int... grades) {
         this.name = name;
         addGrades(grades);
     }
@@ -23,16 +23,18 @@ public class Student {
         return (this.average() == 5);
     }
 
-    public void addGrades (int... grades) throws Exception {
+    public void addGrades (int... grades) {
         for (int grade : grades) {
-            if (grade > 5 || grade < 2) {
-                throw new Exception("The rating should be between 2 and 5");
-            }
+            if (grade > 5 || grade < 2) return;
         }
         int[] copyGrades = new int[this.grades.length + grades.length];
         System.arraycopy(this.grades, 0, copyGrades, 0, this.grades.length);
         System.arraycopy(grades, 0, copyGrades, this.grades.length, grades.length);
         this.grades = copyGrades;
+    }
+
+    public int[] getGrades() {
+        return grades;
     }
 
     @Override

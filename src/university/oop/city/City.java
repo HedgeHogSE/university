@@ -30,23 +30,24 @@ public class City {
     }
 
     public List<Way> getWays() {
-        return ways;
+        return new ArrayList<>(ways);
     }
 
-    public void setWays(List<Way> ways) throws Exception {
+    public void setWays(List<Way> ways) {
         for (Way way : ways) {
             addWay(way);
         }
     }
 
-    public void addWay(Way way) throws Exception {
+    public void addWay(Way way) {
         //this.ways.add(way);
-        if (way.city == this) {
-            throw new Exception("can't add road to the same city");
-        }
-        List<Way> waysCity = way.city.ways;
+        if (way.getCity() == this) return;
+        List<Way> waysCity = way.getCity().ways;
         for (Way value : waysCity) {
-            if (value.city == this) throw new Exception("there is already a road between these cities");
+            if (value.getCity() == this) {
+                value.price = way.price;
+                return;
+            }
         }
         this.ways.add(way);
     }

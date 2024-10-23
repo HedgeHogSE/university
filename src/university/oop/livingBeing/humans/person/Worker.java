@@ -41,7 +41,7 @@ public class Worker {
     }
 
     public Department getDepartment() {
-        return department;
+        return new Department(this.department.getName(), this.department.getBoss());
     }
 
     public String getName() {

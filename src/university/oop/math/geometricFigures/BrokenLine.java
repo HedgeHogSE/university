@@ -3,7 +3,7 @@ package university.oop.math.geometricFigures;
 import java.util.Arrays;
 
 public class BrokenLine {
-    public Point[] points;
+    private Point[] points;
 
     public BrokenLine(Point... points) {
         this.points = points;
@@ -20,12 +20,16 @@ public class BrokenLine {
         this.points = newPoints;
     }
 
-    public int brokenLineLength () {
+    public int length () {
         int result = 0;
         for (int i = 0; i < this.points.length - 1; i++) {
-            result += new Line(this.points[i], this.points[i + 1]).lineLength();
+            result += new Line(this.points[i], this.points[i + 1]).length();
         }
         return result;
+    }
+
+    public Point[] getPoints() {
+        return points;
     }
 
     @Override

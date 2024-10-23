@@ -1,12 +1,16 @@
 package university.oop.city;
 
 public class Way {
-    public City city;
+    private City city;
     public  int price;
 
     public Way(City city, int price) {
         this.city = city;
         this.price = price;
+    }
+
+    public City getCity() {
+        return city;
     }
 
     public String toString() {
