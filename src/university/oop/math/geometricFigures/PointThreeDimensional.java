@@ -7,4 +7,9 @@ public class PointThreeDimensional extends Point{
         super(x, y);
         this.z = z;
     }
+
+    @Override
+    public String toString() {
+        return String.format("{%d;%d;%d}", this.x, this.y, this.z);
+    }
 }
