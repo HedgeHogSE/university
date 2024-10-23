@@ -1,8 +1,8 @@
-package university.oop.item;
+package university.oop.weapon;
 
 public class Gun {
-    private int quantityCartridges;
-    private final int maxAmmoCount;
+    protected int quantityCartridges;
+    protected final int maxAmmoCount;
     public Gun (int quantityCartridges, int maxAmmoCount) {
         this.maxAmmoCount = maxAmmoCount;
         this.quantityCartridges = Math.min(this.maxAmmoCount, quantityCartridges);

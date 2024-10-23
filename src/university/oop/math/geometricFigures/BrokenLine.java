@@ -21,6 +21,7 @@ public class BrokenLine {
     }
 
     public int length () {
+        if (this.getPoints().length < 2) return 0;
         int result = 0;
         for (int i = 0; i < this.points.length - 1; i++) {
             result += new Line(this.points[i], this.points[i + 1]).length();

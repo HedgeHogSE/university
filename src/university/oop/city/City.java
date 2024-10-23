@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class City {
-    private String name;
-    private List<Way> ways = new ArrayList<>();
+    protected String name;
+    protected List<Way> ways = new ArrayList<>();
 
     public City(String name) {
         setName(name);
@@ -40,12 +40,11 @@ public class City {
     }
 
     public void addWay(Way way) {
-        //this.ways.add(way);
         if (way.getCity() == this) return;
-        List<Way> waysCity = way.getCity().ways;
-        for (Way value : waysCity) {
-            if (value.getCity() == this) {
-                value.price = way.price;
+        //List<Way> waysCity = way.getCity().ways;
+        for (Way thisWay : ways) {
+            if (thisWay.getCity() == way.getCity()) {
+                thisWay.price = way.price;
                 return;
             }
         }

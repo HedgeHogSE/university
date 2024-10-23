@@ -6,12 +6,19 @@ public class ClosedBrokenLine extends BrokenLine{
     }
 
     public ClosedBrokenLine() {
+        super();
     }
 
     @Override
     public int length() {
-        return super.length() + new Line(this.getPoints()[0],
-                this.getPoints()[this.getPoints().length - 1])
-                .length();
+        int res = super.length();
+
+        if (this.getPoints()[0].equals(this.getPoints()[this.getPoints().length - 1])) {
+            return res;
+        }
+        return res + new Line(this.getPoints()[0],
+                     this.getPoints()[this.getPoints().length - 1])
+                     .length();
+
     }
 }

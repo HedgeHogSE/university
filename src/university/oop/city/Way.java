@@ -2,7 +2,7 @@ package university.oop.city;
 
 public class Way {
     private City city;
-    public  int price;
+    public int price;
 
     public Way(City city, int price) {
         this.city = city;

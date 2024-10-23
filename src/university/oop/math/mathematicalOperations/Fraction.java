@@ -1,6 +1,6 @@
 package university.oop.math.mathematicalOperations;
 
-public class Fraction {
+public final class Fraction {
     private int numerator; //то что сверху (числитель)
     private int denominator; //то что снизу (знаменатель)
 
@@ -85,6 +85,13 @@ public class Fraction {
         return res;
     }
 
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
 
     @Override
     public String toString() {
