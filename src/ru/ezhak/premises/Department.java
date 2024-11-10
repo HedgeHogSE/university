@@ -1,6 +1,6 @@
 package ru.ezhak.premises;
 
-import university.oop.livingBeing.humans.person.Worker;
+import ru.ezhak.creature.humans.person.Worker;
 
 import java.util.ArrayList;
 

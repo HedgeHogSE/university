@@ -1,5 +1,5 @@
 package ru.ezhak.creature.humans.person;
-import university.oop.livingBeing.humans.humanAttribute.FullName;
+import ru.ezhak.creature.humans.humanAttribute.FullName;
 
 public class Human {
     private FullName fullName;

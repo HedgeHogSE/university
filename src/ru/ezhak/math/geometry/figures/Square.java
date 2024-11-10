@@ -1,8 +1,8 @@
 package ru.ezhak.math.geometry.figures;
 
-import university.oop.math.geometry.lines.BrokenLine;
-import university.oop.math.geometry.lines.ClosedBrokenLine;
-import university.oop.math.geometry.points.Point;
+import ru.ezhak.math.geometry.lines.BrokenLine;
+import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
+import ru.ezhak.math.geometry.points.Point;
 
 public class Square extends Figure {
     private Point point;

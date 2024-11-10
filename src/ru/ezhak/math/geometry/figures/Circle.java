@@ -1,6 +1,6 @@
 package ru.ezhak.math.geometry.figures;
 
-import university.oop.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point;
 
 public class Circle extends Figure {
     private int radius;

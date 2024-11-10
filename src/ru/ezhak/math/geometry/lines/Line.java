@@ -1,6 +1,6 @@
 package ru.ezhak.math.geometry.lines;
 
-import university.oop.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point;
 
 public class Line implements LineSegment {
     private Point point1;
