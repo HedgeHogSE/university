@@ -1,12 +1,10 @@
-package ru.ezhak.creature.humans.person;
-
-import ru.ezhak.premises.Department;
+package ru.ezhak.department;
 
 import java.util.ArrayList;
 
 public class Worker {
-    private String name;
-    private Department department;
+    String name;
+    Department department;
 
     public Worker(String name) {
         this.name = name;
@@ -16,8 +14,8 @@ public class Worker {
         if (department == null) {
             return String.format("Работник %s не привязан к отделу", this.name);
         }
-        StringBuilder res = new StringBuilder(String.format("Коллеги у %s в отделе %s: ", this.name, department.getName()));
-        for (Worker worker : department.getWorkers()) {
+        StringBuilder res = new StringBuilder(String.format("Коллеги у %s в отделе %s: ", this.name, department.name));
+        for (Worker worker : department.workers) {
             res.append(worker.name).append(" ");
         }
 
@@ -26,7 +24,7 @@ public class Worker {
 
     public Worker[] showColleaguesAsArray () {
 
-        return new ArrayList<>(department.getWorkers()).toArray(new Worker[0]);
+        return new ArrayList<>(department.workers).toArray(new Worker[0]);
     }
 
     public void setDepartment(Department department) {
@@ -41,7 +39,7 @@ public class Worker {
     }
 
     public Department getDepartment() {
-        return new Department(this.department.getName(), this.department.getBoss());
+        return new Department(this.department.name, this.department.boss);
     }
 
     public String getName() {
@@ -56,10 +54,10 @@ public class Worker {
     public String toString() {
         if (department == null) {
             return "Работник " + name + " не работает ни в каком отделе";
-        } else if (department.getBoss() == this) {
-            return String.format("Начальник %s работает в %s", name, department);
+        } else if (department.boss == this) {
+            return String.format("Начальник %s работает в %s", name, department.name);
         } else {
-            return String.format("Работник %s работает в %s, у которого начальник %s", name, department, department.getBoss());
+            return String.format("Работник %s работает в %s, у которого начальник %s", name, department, department.boss.name);
         }
 
     }

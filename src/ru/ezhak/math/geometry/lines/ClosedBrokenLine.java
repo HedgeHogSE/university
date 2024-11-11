@@ -1,4 +1,4 @@
-package ru.ezhak.math.geometry.lines;
+/*package ru.ezhak.math.geometry.lines;
 
 import ru.ezhak.math.geometry.points.Point;
 
@@ -23,4 +23,4 @@ public class ClosedBrokenLine extends BrokenLine {
                      .length();
 
     }
-}
+}*/

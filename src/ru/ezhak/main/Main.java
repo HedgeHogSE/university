@@ -1,5 +1,7 @@
 package ru.ezhak.main;
 
+import ru.ezhak.department.Department;
+import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
 import ru.ezhak.math.geometry.lines.Line;
 import ru.ezhak.math.geometry.lines.LineOperations;
@@ -31,9 +33,38 @@ public class Main {
 
         //System.out.println(MathOperations.expString(args[0], args[1]));
 
-        Point point = new Point(1,2);
+        /*Point point = new Point(1,2);
         java.awt.Point point1 = new java.awt.Point(1,2);
 
-        System.out.printf("%d, %d", point.getX() + point.getY(), point1.x + point1.y);
+        System.out.printf("%s, %s", point, point1);*/
+
+        Department department = new Department("IT");
+        Worker bossWorker = new Worker("Alex");
+        department.setBoss(bossWorker);
+        int i = 1;
+        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
+
+        System.out.println();
+
+        bossWorker.setDepartment(null);
+        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
+
+        System.out.println();
+
+        department.setBoss(bossWorker);
+        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
+        department.deleteWorker(bossWorker);
+        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
+        department.setBoss(bossWorker);
+
+        System.out.println();
+
+        Worker worker = new Worker("Petya");
+        department.addWorker(worker);
+        System.out.printf("%d) %s\n", i++, department.getWorkers());
+        department.deleteWorker(worker);
+        System.out.printf("%d) %s\n", i++, department.getWorkers());
+        department.deleteWorker(bossWorker);
+        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
     }
 }

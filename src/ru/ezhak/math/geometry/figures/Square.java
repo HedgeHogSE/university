@@ -1,7 +1,7 @@
 package ru.ezhak.math.geometry.figures;
 
 import ru.ezhak.math.geometry.lines.BrokenLine;
-import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
+//import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
 import ru.ezhak.math.geometry.points.Point;
 
 public class Square extends Figure {
@@ -27,13 +27,13 @@ public class Square extends Figure {
         return brokenLine;
     }
 
-    public BrokenLine isClosedBrokenLine () {
+    /*public BrokenLine isClosedBrokenLine () {
         ClosedBrokenLine closedBrokenLine = new ClosedBrokenLine(this.point);
         closedBrokenLine.addPoints(new Point(this.point.getX() + this.length, this.point.getY()));
         closedBrokenLine.addPoints(new Point(this.point.getX() + this.length, this.point.getY() - this.length));
         closedBrokenLine.addPoints(new Point(this.point.getX(), this.point.getY() - this.length));
         return closedBrokenLine;
-    }
+    }*/
 
     public int getLength() {
         return length;
