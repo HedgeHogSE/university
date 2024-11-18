@@ -2,6 +2,8 @@ package ru.ezhak.math.geometry.lines;
 
 import ru.ezhak.math.geometry.points.Point;
 
+import java.util.Objects;
+
 public class Line implements LineSegment {
     private Point point1;
     private Point point2;
@@ -37,6 +39,15 @@ public class Line implements LineSegment {
     public void setPoint2(Point point2) {
         this.point2.setX(point2.getX());
         this.point2.setY(point2.getY());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return (this.point1.getX() == line.point1.getX() && this.point1.getY() == line.point1.getY())
+                && (this.point2.getX() == line.point2.getX() && this.point2.getY() == line.point2.getY());
     }
 
     public String toString() {

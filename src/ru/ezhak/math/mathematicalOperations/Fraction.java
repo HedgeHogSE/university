@@ -1,5 +1,7 @@
 package ru.ezhak.math.mathematicalOperations;
 
+import java.util.Objects;
+
 public final class Fraction extends Number{
     private int numerator; //то что сверху (числитель)
     private int denominator; //то что снизу (знаменатель)
@@ -117,4 +119,13 @@ public final class Fraction extends Number{
     public double doubleValue() {
         return (double) numerator / denominator;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numerator == fraction.numerator && denominator == fraction.denominator;
+    }
+
 }

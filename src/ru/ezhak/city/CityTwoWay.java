@@ -8,7 +8,7 @@ public class CityTwoWay extends City{
         super(name);
     }
 
-    public CityTwoWay(String name, List<Way> ways) throws Exception {
+    public CityTwoWay(String name, List<Way> ways) {
         super(name, ways);
     }
 
@@ -16,6 +16,9 @@ public class CityTwoWay extends City{
     @Override
     public void addWay(Way way) {
         super.addWay(way);
+        for (int i=0; i < way.getCity().getWays().size(); i++) {
+            if (way.getCity().getWays().get(i).getCity() == this) return;
+        }
         way.getCity().addWay(new Way(this, way.price));
     }
 }

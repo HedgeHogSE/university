@@ -2,6 +2,7 @@ package ru.ezhak.city;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class City {
     protected String name;
@@ -13,7 +14,7 @@ public class City {
     }
 
 
-    public City(String name, List<Way> ways) throws Exception {
+    public City(String name, List<Way> ways) {
         this(name);
         setWays(ways);
     }
@@ -50,6 +51,27 @@ public class City {
 
     public void removeWay(Way way) {
         this.ways.remove(way);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || (o.getClass() != CityTwoWay.class && getClass() != o.getClass())) return false;
+        if (o instanceof CityTwoWay) {
+            CityTwoWay cityTwoWay = (CityTwoWay) o;
+            if (cityTwoWay.getWays().size() != this.ways.size()) return false;
+            for (Way way : cityTwoWay.ways) {
+                if(!this.ways.contains(way)) return false;
+            }
+        }
+        else {
+            City city = (City) o;
+            if (city.getWays().size() != this.ways.size()) return false;
+            for (Way way : city.ways) {
+                if(!this.ways.contains(way)) return false;
+            }
+        }
+        return true;
     }
 
     @Override

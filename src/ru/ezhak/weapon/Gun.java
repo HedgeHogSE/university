@@ -1,6 +1,6 @@
 package ru.ezhak.weapon;
 
-public class Gun extends Weapon{
+public class Gun extends Weapon {
     protected final int maxAmmoCount;
     public Gun (int ammo, int maxAmmoCount) {
         super(ammo);
@@ -45,4 +45,10 @@ public class Gun extends Weapon{
         return ammo() == 0;
     }
 
+    @Override
+    public String toString() {
+        return "Gun{" +
+                "maxAmmoCount=" + maxAmmoCount +
+                '}';
+    }
 }

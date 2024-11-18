@@ -1,5 +1,7 @@
 package ru.ezhak.math.geometry.points;
 
+import java.util.Objects;
+
 public class Point {
     protected int x;
     protected int y;
@@ -23,6 +25,14 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
     }
 
     public String toString() {

@@ -1,6 +1,6 @@
 package ru.ezhak.weapon;
 
-/*public class Machine extends Weapon{
+public class Machine extends Gun{
 
     private int rateOfFire = 30;
 
@@ -26,17 +26,17 @@ package ru.ezhak.weapon;
 
     @Override
     public void shoot() {
-        if (this.ammo < 0) {
+        if (this.ammo() < 0) {
             System.out.println("Клац(");
             return;
         }
-        if (this.ammo >= this.rateOfFire) {
+        if (this.ammo() >= this.rateOfFire) {
             cyclicTextOutput(this.rateOfFire, "Бах!");
-            this.ammo -= this.rateOfFire;
+            this.load(this.ammo() - this.rateOfFire);
         } else {
-            cyclicTextOutput(this.ammo, "Бах!");
-            cyclicTextOutput(this.rateOfFire - this.ammo, "Клац(");
-            this.ammo = 0;
+            cyclicTextOutput(this.ammo(), "Бах!");
+            cyclicTextOutput(this.rateOfFire - this.ammo(), "Клац(");
+            this.load(0);
         }
     }
 
@@ -45,4 +45,12 @@ package ru.ezhak.weapon;
             shoot();
         }
     }
-}*/
+
+    @Override
+    public String toString() {
+        return "Machine{" +
+                "rateOfFire=" + rateOfFire +
+                ", maxAmmoCount=" + maxAmmoCount +
+                '}';
+    }
+}

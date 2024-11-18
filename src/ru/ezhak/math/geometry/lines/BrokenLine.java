@@ -5,6 +5,7 @@ import ru.ezhak.math.geometry.points.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class BrokenLine implements LineSegment {
     private List<Point> points;
@@ -32,6 +33,20 @@ public class BrokenLine implements LineSegment {
 
     public List<Point> getPoints() {
         return points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrokenLine brokenLine = (BrokenLine) o;
+        if (brokenLine.getPoints().size() != this.getPoints().size()) return false;
+
+        for (int i = 0; i < this.getPoints().size() - 1; i++) {
+            Line line = new Line(brokenLine.points.get(i), brokenLine.points.get(i + 1));
+            if (!line.equals(new Line(this.points.get(i), this.points.get(i + 1)))) return false;
+        }
+        return true;
     }
 
     @Override
