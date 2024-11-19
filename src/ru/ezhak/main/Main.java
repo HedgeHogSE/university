@@ -6,6 +6,7 @@ import ru.ezhak.city.Way;
 import ru.ezhak.department.Department;
 import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
+import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
 import ru.ezhak.math.geometry.lines.Line;
 import ru.ezhak.math.geometry.lines.LineOperations;
 import ru.ezhak.math.geometry.points.Point;
@@ -69,5 +70,20 @@ public class Main {
         City cityA = new City("A", ways);
         CityTwoWay cityTwoWayA = new CityTwoWay("A", ways);
         System.out.println(cityA.equals(cityTwoWayA));
+        System.out.println(cityA.hashCode());
+        System.out.println(cityTwoWayA.hashCode());
+
+        /*Line line1 = new Line(1,2,3,4);
+        Line line2 = new Line(1,2,3,4);
+        Line line3 = new Line(3,4,1,2);
+        System.out.println(line1.equals(line3));
+        System.out.println(line1.hashCode());
+        System.out.println(line3.hashCode());*/
+
+        /*ClosedBrokenLine closedBrokenLine = new ClosedBrokenLine(new Point(1,2), new Point(3,4), new Point(5,6));
+        BrokenLine brokenLine = new BrokenLine(new Point(1,2), new Point(3,4), new Point(5,6), new Point(1,2));
+        System.out.println(brokenLine.equals(closedBrokenLine));
+        System.out.println(brokenLine.hashCode());
+        System.out.println(brokenLine.hashCode());*/
     }
 }

@@ -75,6 +75,11 @@ public class City {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(name, ways);
+    }
+
+    @Override
     public String toString() {
         return "Город " + this.name + " с путями: " + ways.toString();
     }

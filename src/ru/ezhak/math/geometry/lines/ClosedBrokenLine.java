@@ -5,22 +5,12 @@ import ru.ezhak.math.geometry.points.Point;
 public class ClosedBrokenLine extends BrokenLine {
     public ClosedBrokenLine(Point... points) {
         super(points);
+        if (points.length <= 2) return;
+        if (points[0].equals(points[points.length - 1])) return;
+        else addPoints(points[0]);
     }
 
     public ClosedBrokenLine() {
         super();
-    }
-
-    @Override
-    public int length() {
-        int res = super.length();
-
-        if (this.getPoints().getFirst().equals(this.getPoints().getLast())) {
-            return res;
-        }
-        return res + new Line(this.getPoints().getFirst(),
-                     this.getPoints().getLast())
-                     .length();
-
     }
 }

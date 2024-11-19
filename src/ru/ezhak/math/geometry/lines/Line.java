@@ -13,7 +13,7 @@ public class Line implements LineSegment {
         this.point2 = pnt2;
     }
 
-    public Line(int x1, int x2, int y1, int y2) {
+    public Line(int x1, int y1, int x2, int y2) {
         this(new Point(x1,y1), new Point(x2,y2));
     }
 
@@ -46,8 +46,13 @@ public class Line implements LineSegment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return (this.point1.getX() == line.point1.getX() && this.point1.getY() == line.point1.getY())
-                && (this.point2.getX() == line.point2.getX() && this.point2.getY() == line.point2.getY());
+        return (this.point1.equals(line.point1) && this.point2.equals(line.point2)) ||
+                (this.point1.equals(line.point2) && this.point2.equals(line.point1));
+    }
+
+    @Override
+    public int hashCode() {
+        return point1.hashCode() + point2.hashCode();
     }
 
     public String toString() {

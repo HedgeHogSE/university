@@ -1,5 +1,6 @@
 package ru.ezhak.math.geometry.lines;
 
+import ru.ezhak.city.CityTwoWay;
 import ru.ezhak.math.geometry.points.Point;
 
 import java.util.ArrayList;
@@ -35,18 +36,37 @@ public class BrokenLine implements LineSegment {
         return points;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BrokenLine brokenLine = (BrokenLine) o;
-        if (brokenLine.getPoints().size() != this.getPoints().size()) return false;
-
+    private boolean compareLines (List<Point> points) {
+        if (points.size() != this.getPoints().size()) return false;
         for (int i = 0; i < this.getPoints().size() - 1; i++) {
-            Line line = new Line(brokenLine.points.get(i), brokenLine.points.get(i + 1));
+            Line line = new Line(points.get(i), points.get(i + 1));
             if (!line.equals(new Line(this.points.get(i), this.points.get(i + 1)))) return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || (o.getClass() != ClosedBrokenLine.class && getClass() != o.getClass())) return false;
+
+        if (o instanceof ClosedBrokenLine) {
+            ClosedBrokenLine closedBrokenLine = (ClosedBrokenLine) o;
+            return compareLines(closedBrokenLine.getPoints());
+        }
+        else {
+            BrokenLine brokenLine = (BrokenLine) o;
+            return compareLines(brokenLine.getPoints());
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int res = 0;
+        for (Point point : points) {
+            res += point.hashCode();
+        }
+        return res;
     }
 
     @Override

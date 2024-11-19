@@ -1,6 +1,7 @@
 package ru.ezhak.creature.humans.person;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student {
     public String name;
@@ -35,6 +36,21 @@ public class Student {
 
     public int[] getGrades() {
         return grades;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(name, student.name) && Arrays.equals(grades, student.grades);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name);
+        result = 31 * result + Arrays.hashCode(grades);
+        return result;
     }
 
     @Override
