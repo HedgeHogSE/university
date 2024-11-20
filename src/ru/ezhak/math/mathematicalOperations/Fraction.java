@@ -128,4 +128,8 @@ public final class Fraction extends Number{
         return numerator == fraction.numerator && denominator == fraction.denominator;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

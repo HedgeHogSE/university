@@ -57,8 +57,7 @@ public class City {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || (o.getClass() != CityTwoWay.class && getClass() != o.getClass())) return false;
-        if (o instanceof CityTwoWay) {
-            CityTwoWay cityTwoWay = (CityTwoWay) o;
+        if (o instanceof CityTwoWay cityTwoWay) {
             if (cityTwoWay.getWays().size() != this.ways.size()) return false;
             for (Way way : cityTwoWay.ways) {
                 if(!this.ways.contains(way)) return false;
@@ -76,7 +75,7 @@ public class City {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, ways);
+        return Objects.hash(ways);
     }
 
     @Override

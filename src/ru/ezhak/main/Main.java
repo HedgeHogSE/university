@@ -63,7 +63,7 @@ public class Main {
         BrokenLine brokenLine2 = new BrokenLine(new Point(1,2), new Point(3,4), new Point(5,6), new Point(7,8));
         System.out.println(brokenLine.equals(brokenLine2));*/
 
-        City cityB = new City("B");
+        /*City cityB = new City("B");
         City cityC = new City("C");
         City cityD = new City("D");
         ArrayList<Way> ways = new ArrayList<>(List.of(new Way(cityB, 5),new Way(cityC, 5),new Way(cityD, 5)));
@@ -71,7 +71,7 @@ public class Main {
         CityTwoWay cityTwoWayA = new CityTwoWay("A", ways);
         System.out.println(cityA.equals(cityTwoWayA));
         System.out.println(cityA.hashCode());
-        System.out.println(cityTwoWayA.hashCode());
+        System.out.println(cityTwoWayA.hashCode());*/
 
         /*Line line1 = new Line(1,2,3,4);
         Line line2 = new Line(1,2,3,4);
@@ -85,5 +85,7 @@ public class Main {
         System.out.println(brokenLine.equals(closedBrokenLine));
         System.out.println(brokenLine.hashCode());
         System.out.println(brokenLine.hashCode());*/
+
+
     }
 }
