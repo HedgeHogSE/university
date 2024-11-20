@@ -54,10 +54,12 @@ public class BrokenLine implements LineSegment {
             ClosedBrokenLine closedBrokenLine = (ClosedBrokenLine) o;
             return compareLines(closedBrokenLine.getPoints());
         }
-        else {
+
+        else if (o instanceof BrokenLine) {
             BrokenLine brokenLine = (BrokenLine) o;
             return compareLines(brokenLine.getPoints());
         }
+        else return false;
     }
 
     @Override
