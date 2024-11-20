@@ -2,7 +2,7 @@ package ru.ezhak.math.geometry.points;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Cloneable{
     protected int x;
     protected int y;
 
@@ -38,6 +38,11 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public String toString() {

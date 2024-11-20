@@ -4,7 +4,7 @@ import ru.ezhak.math.geometry.points.Point;
 
 import java.util.Objects;
 
-public class Line implements LineSegment {
+public class Line implements LineSegment, Cloneable {
     private Point point1;
     private Point point2;
 
@@ -53,6 +53,14 @@ public class Line implements LineSegment {
     @Override
     public int hashCode() {
         return point1.hashCode() + point2.hashCode();
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Line res = (Line) super.clone();
+        res.point1 = (Point)this.point1.clone();
+        res.point2 = (Point)this.point2.clone();
+        return res;
     }
 
     public String toString() {

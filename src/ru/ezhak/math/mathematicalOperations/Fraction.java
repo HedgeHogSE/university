@@ -2,7 +2,7 @@ package ru.ezhak.math.mathematicalOperations;
 
 import java.util.Objects;
 
-public final class Fraction extends Number{
+public final class Fraction extends Number implements Cloneable{
     private int numerator; //то что сверху (числитель)
     private int denominator; //то что снизу (знаменатель)
 
@@ -128,4 +128,14 @@ public final class Fraction extends Number{
         return numerator == fraction.numerator && denominator == fraction.denominator;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+
+    }
 }

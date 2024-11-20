@@ -22,7 +22,7 @@ import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         /*Department department = new Department("IT");
         Worker bossWorker = new Worker("Alex");
         department.setBoss(bossWorker);
@@ -80,7 +80,7 @@ public class Main {
         System.out.println(line1.hashCode());
         System.out.println(line3.hashCode());*/
 
-        Point p1 = new Point(1, 2);
+        /*Point p1 = new Point(1, 2);
         Point p2 = new Point(3, 4);
         Point p3 = new Point(5, 6);
 
@@ -94,6 +94,11 @@ public class Main {
         System.out.println(closedBrokenLine1.equals(closedBrokenLine1));
 
         System.out.println(closedBrokenLine1.equals(brokenLine1));
-        System.out.println(brokenLine1.equals(closedBrokenLine1));
+        System.out.println(brokenLine1.equals(closedBrokenLine1));*/
+
+        Fraction fraction1 = new Fraction(5, 10);
+
+        // Клонируем объект
+        Fraction fraction2 = (Fraction) fraction1.clone();
     }
 }
