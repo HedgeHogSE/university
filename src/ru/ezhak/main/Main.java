@@ -3,6 +3,10 @@ package ru.ezhak.main;
 import ru.ezhak.city.City;
 import ru.ezhak.city.CityTwoWay;
 import ru.ezhak.city.Way;
+import ru.ezhak.creature.animals.cats.Cat;
+import ru.ezhak.creature.animals.cats.CountMeow;
+import ru.ezhak.creature.animals.cats.MeowNews;
+import ru.ezhak.creature.animals.cats.Tester;
 import ru.ezhak.department.Department;
 import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
@@ -96,9 +100,15 @@ public class Main {
         System.out.println(closedBrokenLine1.equals(brokenLine1));
         System.out.println(brokenLine1.equals(closedBrokenLine1));*/
 
-        Fraction fraction1 = new Fraction(5, 10);
+        /*Fraction fraction1 = new Fraction(5, 10);
+        Fraction fraction2 = (Fraction) fraction1.clone();*/
 
-        // Клонируем объект
-        Fraction fraction2 = (Fraction) fraction1.clone();
+        Cat cat = new Cat("Мурзик");
+        MeowNews meowNews = new MeowNews(cat);
+        CountMeow countMeow = new CountMeow(meowNews);
+        //Tester.test(meowNews);
+        Tester.test(countMeow);
+        System.out.println(countMeow.count);
+
     }
 }

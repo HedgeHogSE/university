@@ -76,7 +76,11 @@ public class City {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, ways);
+        int res = 0;
+        for (Way way : ways) {
+            res += way.hashCode();
+        }
+        return res;
     }
 
     @Override
