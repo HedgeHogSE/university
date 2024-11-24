@@ -56,11 +56,15 @@ public class Line implements LineSegment, Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Line res = (Line) super.clone();
-        res.point1 = (Point)this.point1.clone();
-        res.point2 = (Point)this.point2.clone();
-        return res;
+    public Line clone(){
+        try{
+            Line clonedLine = (Line)super.clone();
+            clonedLine.point1 = new Point(point1.getX(), point1.getY());
+            clonedLine.point2 = new Point(point2.getX(), point2.getY());
+            return clonedLine;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String toString() {

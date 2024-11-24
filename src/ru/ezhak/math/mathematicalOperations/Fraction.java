@@ -134,8 +134,12 @@ public final class Fraction extends Number implements Cloneable{
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-
+    public Fraction clone(){
+        try{
+            return (Fraction)super.clone();
+        }
+        catch (CloneNotSupportedException e){
+            throw new RuntimeException(e);
+        }
     }
 }

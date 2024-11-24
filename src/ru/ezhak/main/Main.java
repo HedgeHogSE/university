@@ -7,6 +7,10 @@ import ru.ezhak.creature.animals.cats.Cat;
 import ru.ezhak.creature.animals.cats.CountMeow;
 import ru.ezhak.creature.animals.cats.MeowNews;
 import ru.ezhak.creature.animals.cats.Tester;
+import ru.ezhak.creature.humans.person.karate.HandKick;
+import ru.ezhak.creature.humans.person.karate.JumpKick;
+import ru.ezhak.creature.humans.person.karate.KarateKid;
+import ru.ezhak.creature.humans.person.karate.LegKick;
 import ru.ezhak.department.Department;
 import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
@@ -103,12 +107,15 @@ public class Main {
         /*Fraction fraction1 = new Fraction(5, 10);
         Fraction fraction2 = (Fraction) fraction1.clone();*/
 
-        Cat cat = new Cat("Мурзик");
+        /*Cat cat = new Cat("Мурзик");
         MeowNews meowNews = new MeowNews(cat);
         CountMeow countMeow = new CountMeow(meowNews);
         //Tester.test(meowNews);
         Tester.test(countMeow);
-        System.out.println(countMeow.count);
+        System.out.println(countMeow.count);*/
+
+        KarateKid karateKid = new KarateKid("Васёк");
+
 
     }
 }
