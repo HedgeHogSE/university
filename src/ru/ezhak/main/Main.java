@@ -7,10 +7,7 @@ import ru.ezhak.creature.animals.cats.Cat;
 import ru.ezhak.creature.animals.cats.CountMeow;
 import ru.ezhak.creature.animals.cats.MeowNews;
 import ru.ezhak.creature.animals.cats.Tester;
-import ru.ezhak.creature.humans.person.karate.HandKick;
-import ru.ezhak.creature.humans.person.karate.JumpKick;
-import ru.ezhak.creature.humans.person.karate.KarateKid;
-import ru.ezhak.creature.humans.person.karate.LegKick;
+import ru.ezhak.creature.humans.person.karate.*;
 import ru.ezhak.department.Department;
 import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
@@ -116,6 +113,14 @@ public class Main {
 
         KarateKid karateKid = new KarateKid("Васёк");
 
+        Combo combo = new Combo();
+        combo.beatables.add(new HandKick());
+        combo.beatables.add(new HandKick());
+        combo.beatables.add(new HandKick());
 
+        Combo combo2 = new Combo();
+        combo.beatables.add(new LegKick());
+        combo.beatables.add(new LegKick());
+        combo.beatables.add(new LegKick());
     }
 }

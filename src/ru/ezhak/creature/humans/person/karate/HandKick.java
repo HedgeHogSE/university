@@ -1,13 +1,16 @@
 package ru.ezhak.creature.humans.person.karate;
 
 public class HandKick implements Beatable {
-    public KarateKid karateKid;
-    public HandKick(KarateKid karateKid) {
-        this.karateKid = karateKid;
+
+    static int countHandKick = 0;
+
+    public HandKick() {
+        countHandKick++;
+        if (countHandKick > 1) throw new RuntimeException("!!!");
     }
 
     @Override
-    public void hit() {
+    public void hit(KarateKid karateKid) {
         karateKid.handKick();
     }
 }
