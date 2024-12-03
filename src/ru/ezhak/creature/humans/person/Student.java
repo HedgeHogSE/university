@@ -1,9 +1,11 @@
 package ru.ezhak.creature.humans.person;
 
+import ru.ezhak.Comparable;
+
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     public String name;
     private int[] grades = {};
 
@@ -51,6 +53,14 @@ public class Student {
         int result = Objects.hash(name);
         result = 31 * result + Arrays.hashCode(grades);
         return result;
+    }
+    @Override
+    public int compare(Student student) {
+        double thisAvg = this.average();
+        double studentAvg = student.average();
+        if (thisAvg > studentAvg) return 1;
+        else if (thisAvg == studentAvg) return 0;
+        return -1;
     }
 
     @Override

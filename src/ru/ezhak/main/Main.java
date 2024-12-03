@@ -1,5 +1,6 @@
 package ru.ezhak.main;
 
+import ru.ezhak.box.Storage;
 import ru.ezhak.city.City;
 import ru.ezhak.city.CityTwoWay;
 import ru.ezhak.city.Way;
@@ -8,6 +9,7 @@ import ru.ezhak.creature.animals.cats.CountMeow;
 import ru.ezhak.creature.animals.cats.MeowNews;
 import ru.ezhak.creature.animals.cats.Tester;
 import ru.ezhak.creature.humans.person.karate.*;
+import ru.ezhak.dataStructure.Stack;
 import ru.ezhak.department.Department;
 import ru.ezhak.department.Worker;
 import ru.ezhak.math.geometry.lines.BrokenLine;
@@ -28,99 +30,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
-        /*Department department = new Department("IT");
-        Worker bossWorker = new Worker("Alex");
-        department.setBoss(bossWorker);
-        int i = 1;
-        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
+        /*Storage<Integer> storage = new Storage<>(null, Integer.class);
+        System.out.println(storage.getOb());*/
 
-        System.out.println();
-
-        bossWorker.setDepartment(null);
-        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
-
-        System.out.println();
-
-        department.setBoss(bossWorker);
-        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
-        department.deleteWorker(bossWorker);
-        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);
-        department.setBoss(bossWorker);
-
-        System.out.println();
-
-        Worker worker = new Worker("Petya");
-        department.addWorker(worker);
-        System.out.printf("%d) %s\n", i++, department.getWorkers());
-        department.deleteWorker(worker);
-        System.out.printf("%d) %s\n", i++, department.getWorkers());
-        department.deleteWorker(bossWorker);
-        System.out.printf("%d) %s -- %s\n", i++, department, bossWorker);*/
-
-
-        /*Shooter shooter = new Shooter("Garry");
-        shooter.shoot();
-        shooter.setWeapon(new Gun(2,5));
-        shooter.shoot();*/
-
-
-        /*BrokenLine brokenLine = new BrokenLine(new Point(1,2), new Point(3,4), new Point(5,6), new Point(7,8));
-        BrokenLine brokenLine2 = new BrokenLine(new Point(1,2), new Point(3,4), new Point(5,6), new Point(7,8));
-        System.out.println(brokenLine.equals(brokenLine2));*/
-
-//        City cityB = new City("B");
-//        City cityC = new City("C");
-//        City cityD = new City("D");
-//        ArrayList<Way> ways = new ArrayList<>(List.of(new Way(cityB, 5),new Way(cityC, 5),new Way(cityD, 5)));
-//        City cityA = new City("A", ways);
-//        CityTwoWay cityTwoWayA = new CityTwoWay("A", ways);
-//        System.out.println(cityA.equals(cityTwoWayA));
-//        System.out.println(cityA.hashCode());
-//        System.out.println(cityTwoWayA.hashCode());
-
-        /*Line line1 = new Line(1,2,3,4);
-        Line line2 = new Line(1,2,3,4);
-        Line line3 = new Line(3,4,1,2);
-        System.out.println(line1.equals(line3));
-        System.out.println(line1.hashCode());
-        System.out.println(line3.hashCode());*/
-
-        /*Point p1 = new Point(1, 2);
-        Point p2 = new Point(3, 4);
-        Point p3 = new Point(5, 6);
-
-        ClosedBrokenLine closedBrokenLine1 = new ClosedBrokenLine(p1,p2,p3);
-        ClosedBrokenLine closedBrokenLine2 = new ClosedBrokenLine(p1,p2,p3);
-
-        BrokenLine brokenLine1 = new BrokenLine(p1,p2,p3,p1);
-        BrokenLine brokenLine2 = new BrokenLine(p1,p2,p3,p1);
-
-        System.out.println(brokenLine1.equals(brokenLine2));
-        System.out.println(closedBrokenLine1.equals(closedBrokenLine1));
-
-        System.out.println(closedBrokenLine1.equals(brokenLine1));
-        System.out.println(brokenLine1.equals(closedBrokenLine1));*/
-
-        /*Fraction fraction1 = new Fraction(5, 10);
-        Fraction fraction2 = (Fraction) fraction1.clone();*/
-
-        /*Cat cat = new Cat("Мурзик");
-        MeowNews meowNews = new MeowNews(cat);
-        CountMeow countMeow = new CountMeow(meowNews);
-        //Tester.test(meowNews);
-        Tester.test(countMeow);
-        System.out.println(countMeow.count);*/
-
-        KarateKid karateKid = new KarateKid("Васёк");
-
-        Combo combo = new Combo();
-        combo.beatables.add(new HandKick());
-        combo.beatables.add(new HandKick());
-        combo.beatables.add(new HandKick());
-
-        Combo combo2 = new Combo();
-        combo.beatables.add(new LegKick());
-        combo.beatables.add(new LegKick());
-        combo.beatables.add(new LegKick());
+        Stack stack = new Stack();
+        stack.push(11);
+        System.out.println(stack.peek());
+        stack.push("string");
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
     }
 }
