@@ -1,4 +1,4 @@
-package ru.ezhak.box;
+package ru.ezhak.storage;
 
 public class Storage<T> {
     private final T ob;

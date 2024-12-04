@@ -1,10 +1,10 @@
 package ru.ezhak.math.geometry.figures;
 
-import ru.ezhak.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point2D;
 
 public class Circle extends Figure {
     private int radius;
-    public Circle(Point point, int radius) {
+    public Circle(Point2D point, int radius) {
         super(point);
         this.radius = radius;
     }

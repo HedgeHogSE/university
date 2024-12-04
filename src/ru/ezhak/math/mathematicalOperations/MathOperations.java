@@ -1,6 +1,7 @@
 package ru.ezhak.math.mathematicalOperations;
 
 import java.math.*;
+import java.util.List;
 
 import static java.lang.Math.pow;
 import static java.lang.Integer.parseInt;
@@ -18,5 +19,11 @@ public class MathOperations {
         double n1 = parseInt(num1);
         double n2 = parseInt(num2);
         return pow(n1, n2);
+    }
+
+    public static void add100Numbers(List<? super Integer> numbers) {
+        for (int i = 1; i <= 100; i++) {
+            numbers.add(i);
+        }
     }
 }

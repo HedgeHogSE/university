@@ -1,43 +1,33 @@
 package ru.ezhak.main;
 
-import ru.ezhak.box.Storage;
-import ru.ezhak.city.City;
-import ru.ezhak.city.CityTwoWay;
-import ru.ezhak.city.Way;
-import ru.ezhak.creature.animals.cats.Cat;
-import ru.ezhak.creature.animals.cats.CountMeow;
-import ru.ezhak.creature.animals.cats.MeowNews;
-import ru.ezhak.creature.animals.cats.Tester;
-import ru.ezhak.creature.humans.person.karate.*;
 import ru.ezhak.dataStructure.Stack;
-import ru.ezhak.department.Department;
-import ru.ezhak.department.Worker;
-import ru.ezhak.math.geometry.lines.BrokenLine;
-import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
 import ru.ezhak.math.geometry.lines.Line;
-import ru.ezhak.math.geometry.lines.LineOperations;
-import ru.ezhak.math.geometry.points.Point;
-import ru.ezhak.math.mathematicalOperations.Fraction;
-import ru.ezhak.math.mathematicalOperations.MathOperations;
-import ru.ezhak.weapon.Gun;
-import ru.ezhak.weapon.Machine;
-import ru.ezhak.weapon.Shooter;
+import ru.ezhak.math.geometry.points.Point2D;
+import ru.ezhak.math.geometry.points.Point3D;
+import ru.ezhak.storage.Box;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+import static ru.ezhak.math.geometry.lines.Line.shift;
 
 
 public class Main {
-    public static void main(String[] args) throws CloneNotSupportedException {
-        /*Storage<Integer> storage = new Storage<>(null, Integer.class);
-        System.out.println(storage.getOb());*/
+    public static void main(String[] args) {
+        /*Line<Point3D> line = new Line<>(new Point3D(1,2,4), new Point3D(7,9,12));
+        Line<Point2D> line2 = new Line<>(new Point2D(1,2), new Point2D(3,4));
+        Line.shift(line);
+        Line.shift(line2);
+        System.out.println(line.getPoint1());
+        System.out.println(line2.getPoint1());*/
 
-        Stack stack = new Stack();
-        stack.push(11);
-        System.out.println(stack.peek());
-        stack.push("string");
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        /*Box<Double> box = new Box<>(1.2);
+        Box<Double> box2 = new Box<>(2.3);
+        Box<Integer> box3 = new Box<>(3);
+        System.out.println(Box.maxValue(box,box2,box3));*/
+
+        Box<Point2D> box = new Box<>();
+        box.pushObject(new Point2D(1,2));
+        System.out.println(box.popObject().getClass());
+        Point3D.putInBox(box, new Point3D(1,2,3));
+        System.out.println(box.popObject().getClass());
+
     }
 }

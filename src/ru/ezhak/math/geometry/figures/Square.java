@@ -2,27 +2,27 @@ package ru.ezhak.math.geometry.figures;
 
 import ru.ezhak.math.geometry.lines.BrokenLine;
 //import ru.ezhak.math.geometry.lines.ClosedBrokenLine;
-import ru.ezhak.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point2D;
 
 public class Square extends Figure {
-    private Point point;
+    private Point2D point;
 
     private int length;
 
     public Square(int x, int y, int length) throws Exception {
-        this(new Point(x,y), length);
+        this(new Point2D(x,y), length);
     }
 
-    public Square(Point point, int length) throws Exception {
+    public Square(Point2D point, int length) throws Exception {
         super(point);
         setLength(length);
     }
 
     public BrokenLine isBrokenLine () {
         BrokenLine brokenLine = new BrokenLine(this.point);
-        brokenLine.addPoints(new Point(this.point.getX() + this.length, this.point.getY()));
-        brokenLine.addPoints(new Point(this.point.getX() + this.length, this.point.getY() - this.length));
-        brokenLine.addPoints(new Point(this.point.getX(), this.point.getY() - this.length));
+        brokenLine.addPoints(new Point2D(this.point.getX() + this.length, this.point.getY()));
+        brokenLine.addPoints(new Point2D(this.point.getX() + this.length, this.point.getY() - this.length));
+        brokenLine.addPoints(new Point2D(this.point.getX(), this.point.getY() - this.length));
         brokenLine.addPoints(this.point);
         return brokenLine;
     }

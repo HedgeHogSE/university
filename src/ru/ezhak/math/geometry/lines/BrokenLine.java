@@ -1,17 +1,15 @@
 package ru.ezhak.math.geometry.lines;
 
-import ru.ezhak.city.CityTwoWay;
-import ru.ezhak.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point2D;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class BrokenLine implements LineSegment {
-    private List<Point> points;
+    private List<Point2D> points;
 
-    public BrokenLine(Point... points) {
+    public BrokenLine(Point2D... points) {
         this.points = new ArrayList<>(Arrays.asList(points));
     }
 
@@ -19,7 +17,7 @@ public class BrokenLine implements LineSegment {
         this.points = new ArrayList<>();
     }
 
-    public void addPoints(Point... points) {
+    public void addPoints(Point2D... points) {
         this.points.addAll(Arrays.asList(points));
     }
 
@@ -32,11 +30,11 @@ public class BrokenLine implements LineSegment {
         return result;
     }
 
-    public List<Point> getPoints() {
+    public List<Point2D> getPoints() {
         return points;
     }
 
-    private boolean compareLines (List<Point> points) {
+    private boolean compareLines (List<Point2D> points) {
         if (points.size() != this.getPoints().size()) return false;
         for (int i = 0; i < this.getPoints().size() - 1; i++) {
             Line line = new Line(points.get(i), points.get(i + 1));
@@ -65,7 +63,7 @@ public class BrokenLine implements LineSegment {
     @Override
     public int hashCode() {
         int res = 0;
-        for (Point point : points) {
+        for (Point2D point : points) {
             res += point.hashCode();
         }
         return res;

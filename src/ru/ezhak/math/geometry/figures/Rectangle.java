@@ -1,11 +1,11 @@
 package ru.ezhak.math.geometry.figures;
 
-import ru.ezhak.math.geometry.points.Point;
+import ru.ezhak.math.geometry.points.Point2D;
 
 public class Rectangle extends Figure {
     private int side1;
     private int side2;
-    public Rectangle(Point point, int side1, int side2) throws Exception {
+    public Rectangle(Point2D point, int side1, int side2) throws Exception {
         super(point);
         setSide1(side1);
         setSide2(side2);

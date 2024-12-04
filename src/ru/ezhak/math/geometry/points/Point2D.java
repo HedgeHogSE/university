@@ -2,11 +2,11 @@ package ru.ezhak.math.geometry.points;
 
 import java.util.Objects;
 
-public class Point implements Cloneable{
+public class Point2D implements Cloneable{
     protected int x;
     protected int y;
 
-    public Point(int x, int y) {
+    public Point2D(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -31,7 +31,7 @@ public class Point implements Cloneable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
+        Point2D point = (Point2D) o;
         return x == point.x && y == point.y;
     }
 
@@ -41,9 +41,9 @@ public class Point implements Cloneable{
     }
 
     @Override
-    public final Point clone() {
+    public final Point2D clone() {
         try {
-            return (Point) super.clone();
+            return (Point2D) super.clone();
         }
         catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
