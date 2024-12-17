@@ -72,6 +72,6 @@ public class BrokenLine implements LineSegment {
     @Override
     public String toString() {
         if (points.isEmpty()) return "Нет линии";
-        return "Линия " + points;
+        return "Ломанная линия " + points;
     }
 }

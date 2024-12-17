@@ -1,6 +1,4 @@
-package ru.ezhak.methods;
-
-import java.util.List;
+package ru.ezhak.dataStream;
 
 public interface Reduce<T> {
 
