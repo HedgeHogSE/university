@@ -1,9 +1,10 @@
-package ru.ezhak.creature.humans.person;
+package ru.ezhak.creature.humans.person.student;
 
 import ru.ezhak.Comparable;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Stack;
 
 public class Student implements Comparable<Student> {
     public String name;
@@ -12,6 +13,20 @@ public class Student implements Comparable<Student> {
     public Student (String name, int... grades) {
         this.name = name;
         addGrades(grades);
+    }
+
+    public Save save () {
+        return new SaveStudent();
+    }
+
+    public HistoryStudent history () {
+        return new HistoryStudent(save());
+    }
+
+    public void rollback (SaveStudent student) {
+
+        this.name = student.name;
+        this.grades = student.grades.clone();
     }
 
     public double average () {
@@ -67,5 +82,49 @@ public class Student implements Comparable<Student> {
     public String toString() {
         if (grades == null) return this.name + " без оценок";
         return this.name + ": " + Arrays.toString(this.grades);
+    }
+    // Класс сохранения студента
+    class SaveStudent implements Save{
+        public String name;
+        private final int[] grades;
+
+        public SaveStudent() {
+            this.name = Student.this.name;
+            this.grades = Student.this.grades.clone();
+        }
+
+        @Override
+        public void load() {
+            Student.this.grades = this.grades;
+            Student.this.name = this.name;
+        }
+
+        @Override
+        public String toString() {
+            if (grades == null) return this.name + " без оценок";
+            return this.name + ": " + Arrays.toString(this.grades);
+        }
+    }
+
+    public class HistoryStudent implements History{
+        public final Stack<Student.SaveStudent> saves = new Stack<>();
+
+        public HistoryStudent(Save save) {
+            addChange(save);
+        }
+
+        public void addChange(Save save) {
+            saves.push((Student.SaveStudent) save);
+        }
+
+        public Student.SaveStudent removeChange() {
+            saves.pop();
+            return saves.peek();
+        }
+
+        @Override
+        public Stack<SaveStudent> getSaves() {
+            return saves;
+        }
     }
 }
