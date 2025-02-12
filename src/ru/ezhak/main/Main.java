@@ -1,42 +1,45 @@
 package ru.ezhak.main;
-
-import ru.ezhak.creature.humans.person.student.History;
-//import ru.ezhak.creature.humans.person.student.HistoryStudent;
-import ru.ezhak.creature.humans.person.student.Save;
-import ru.ezhak.creature.humans.person.student.Student;
-import ru.ezhak.math.geometry.lines.BrokenLine;
+import ru.ezhak.math.geometry.lines.Line;
 import ru.ezhak.math.geometry.points.Point2D;
-import ru.ezhak.dataStream.DataStream;
+import ru.ezhak.math.geometry.points.Point3D;
+import ru.ezhak.reflection.classesWithReflection.A;
+import ru.ezhak.reflection.classesWithReflection.B;
+import ru.ezhak.reflection.classesWithReflection.TestB;
+import ru.ezhak.reflection.reflectionUtils.ReflectionUtils;
+import ru.ezhak.reflection.workWithFile.ObjectsReader;
+import ru.ezhak.reflection.workWithFile.ObjectsWriter;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class Main {
     public static void main(String[] args) {
-        Student student = new Student("beb", 5,4,3);
-        History history = student.history();
-        System.out.println("1: " + student);
+        /*List<String> stringList = new ArrayList<>();
+        stringList.add("qqq");
+        stringList.add("qwerty");
+        stringList.add("b e b");
+        stringList.add("ulyxa228");
+        stringList.add("kwkw");
 
-        student.addGrades(4);
-        history.addChange(student.save());
+        int res = stringList.stream().filter(e->e.startsWith("q")).map(String::length).reduce(0,(a, e)-> a + e);
+        System.out.println(res);*/
 
-        student.addGrades(5);
-        history.addChange(student.save());
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(1);
+        integerList.add(2);
+        integerList.add(3);
+        integerList.add(4);
+        integerList.add(5);
 
-        student.name = "AAA";
-        history.addChange(student.save());
-        System.out.println("2: " + student);
-
-        System.out.println(history.getSaves());
-
-        student.rollback(history.removeChange());
-        System.out.println("3: " + student);
-
-        student.rollback(history.removeChange());
-        System.out.println("4: " + student);
-
-        student.rollback(history.removeChange());
-        System.out.println("5: " + student);
-
+        Map<Boolean, List<Integer>> map = integerList.stream().collect(Collectors.partitioningBy(e->e % 2 == 0));
+        List<Integer> evenList = map.get(true);
+        List<Integer> oddList = map.get(false);
+        System.out.println(evenList + ", " + oddList);
     }
 }

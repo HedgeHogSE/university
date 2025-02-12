@@ -1,8 +1,10 @@
 package ru.ezhak.math.geometry.points;
 
+import ru.ezhak.math.geometry.Movable;
+
 import java.util.Objects;
 
-public class Point2D implements Cloneable{
+public class Point2D implements Cloneable, Movable {
     protected int x;
     protected int y;
 
@@ -10,6 +12,12 @@ public class Point2D implements Cloneable{
         this.x = x;
         this.y = y;
     }
+
+    public void shift (String coordinate, int step) {
+        if ("x".equalsIgnoreCase(coordinate)) x += step;
+        else if ("y".equalsIgnoreCase(coordinate)) y += step;
+    }
+
 
     public int getX() {
         return x;

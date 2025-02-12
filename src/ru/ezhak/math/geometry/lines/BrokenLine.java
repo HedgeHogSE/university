@@ -1,5 +1,6 @@
 package ru.ezhak.math.geometry.lines;
 
+import ru.ezhak.iterator.Iterator;
 import ru.ezhak.math.geometry.points.Point2D;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BrokenLine implements LineSegment {
-    private List<Point2D> points;
+    protected List<Point2D> points;
 
     public BrokenLine(Point2D... points) {
         this.points = new ArrayList<>(Arrays.asList(points));
@@ -69,9 +70,26 @@ public class BrokenLine implements LineSegment {
         return res;
     }
 
+    public Iterator getIterator () {
+        return new BrokenLineIterator();
+    }
+
     @Override
     public String toString() {
         if (points.isEmpty()) return "Нет линии";
         return "Ломанная линия " + points;
+    }
+
+    class BrokenLineIterator implements Iterator {
+        int index;
+        @Override
+        public boolean hasNext() {
+            return (index < points.size());
+        }
+
+        @Override
+        public Object next() {
+            return points.get(index++);
+        }
     }
 }

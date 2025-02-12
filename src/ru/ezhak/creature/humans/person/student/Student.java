@@ -2,9 +2,7 @@ package ru.ezhak.creature.humans.person.student;
 
 import ru.ezhak.Comparable;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 public class Student implements Comparable<Student> {
     public String name;
@@ -107,23 +105,23 @@ public class Student implements Comparable<Student> {
     }
 
     public class HistoryStudent implements History{
-        public final Stack<Student.SaveStudent> saves = new Stack<>();
+        public final List<SaveStudent> saves = new ArrayList<>();
 
         public HistoryStudent(Save save) {
             addChange(save);
         }
 
         public void addChange(Save save) {
-            saves.push((Student.SaveStudent) save);
+            saves.add((Student.SaveStudent) save);
         }
 
         public Student.SaveStudent removeChange() {
-            saves.pop();
-            return saves.peek();
+            saves.removeLast();
+            return saves.getLast();
         }
 
         @Override
-        public Stack<SaveStudent> getSaves() {
+        public List<SaveStudent> getSaves() {
             return saves;
         }
     }

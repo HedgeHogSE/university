@@ -2,24 +2,29 @@ package ru.ezhak.storage;
 
 public class Storage<T> {
     private final T ob;
-    private final Class<T> type;
 
-    public Storage(T ob, Class<T> type) {
+    private static final Storage<?> emptyStorage = new Storage<>(null);
+
+    private Storage(T ob) {
         this.ob = ob;
-        this.type = type;
+    }
+
+    public static <T> Storage<T> createStorage (T ob) {
+        if (ob == null) throw new RuntimeException();
+        else return new Storage<>(ob);
+    }
+
+    public static <T>Storage<T> createNullStorage() {
+        return (Storage<T>) emptyStorage;
     }
 
     public boolean isEmpty() {
         return ob == null;
     }
 
-    public T getOb() {
+    public T getOb(T type) {
         if (!this.isEmpty()) return ob;
 
-        if (type == String.class) return (T) "def";
-        else if (type == Integer.class) return (T) Integer.valueOf(0);
-        else if (type == Double.class) return (T) Double.valueOf(0.0);
-
-        throw new RuntimeException();
+        return type;
     }
 }

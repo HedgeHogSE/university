@@ -1,90 +1,75 @@
 package ru.ezhak.math.mathematicalOperations;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public final class Fraction extends Number implements Cloneable{
     private int numerator; //то что сверху (числитель)
     private int denominator; //то что снизу (знаменатель)
 
-    public Fraction(int numerator, int denominator) {
+    private static final Map<String, Fraction> fractionCache = new HashMap<>();
+
+    private Fraction(int numerator, int denominator) {
         this.numerator = numerator;
-        if (denominator == 0) this.denominator = 1;
-        else this.denominator = denominator;
-        if (this.denominator < 0) {
-            this.denominator = -this.denominator;
-            this.numerator = -this.numerator;
-        }
-        //this.simplify();
+        this.denominator = denominator;
     }
 
-    /*public void simplify() {
-        if (this.denominator < 0) {
-            this.denominator = -this.denominator;
-            this.numerator = -this.numerator;
+    public static Fraction createFraction (int numerator, int denominator) {
+        int num = numerator;
+        int denom;
+        if (denominator == 0) denom = 1;
+        else denom = denominator;
+        if (denom < 0) {
+            denom = -denom;
+            num = -num;
         }
-        int min = Math.min(Math.abs(this.numerator), Math.abs(this.denominator));
-        int div = 1;
-        for (int i = min; i > 1; i -= 1) {
-            if (Math.abs(this.numerator) % i == 0 && Math.abs(this.denominator) % i == 0) div = i;
+
+        String key = num + "/" + denom;
+        if (!fractionCache.containsKey(key)) {
+            fractionCache.put(key, new Fraction(numerator, denominator));
         }
-        this.denominator /= div;
-        this.numerator /= div;
-    }*/
+        return fractionCache.get(key);
+    }
 
     public Fraction add (int num) {
-        Fraction res = new Fraction(this.numerator + num * this.denominator, this.denominator);
-        //res.simplify();
-        return res;
+        return new Fraction(this.numerator + num * this.denominator, this.denominator);
     }
 
     public Fraction subtraction (int num) {
-        Fraction res = new Fraction(this.numerator - num * this.denominator, this.denominator);
-        //res.simplify();
-        return res;
+        return new Fraction(this.numerator - num * this.denominator, this.denominator);
     }
 
     public Fraction multiplication (int num) {
-        Fraction res = new Fraction(num * this.numerator, this.denominator);
-        //res.simplify();
-        return res;
+        return new Fraction(num * this.numerator, this.denominator);
     }
 
     public Fraction division (int num) {
-        Fraction res = new Fraction(this.numerator, this.denominator * num);
-        //res.simplify();
-        return res;
+        return new Fraction(this.numerator, this.denominator * num);
     }
 
     public Fraction add (Fraction num) {
         int newNumerator = this.numerator * num.denominator + num.numerator * this.denominator;
         int newDenominator = this.denominator * num.denominator;
-        Fraction res = new Fraction(newNumerator, newDenominator);
-        //res.simplify();
-        return res;
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public Fraction subtraction (Fraction num) {
         int newNumerator = this.numerator * num.denominator - num.numerator * this.denominator;
         int newDenominator = this.denominator * num.denominator;
-        Fraction res = new Fraction(newNumerator, newDenominator);
-        //res.simplify();
-        return res;
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public Fraction multiplication (Fraction num) {
         int newNumerator = this.numerator * num.numerator;
         int newDenominator = this.denominator * num.denominator;
-        Fraction res = new Fraction(newNumerator, newDenominator);
-        //res.simplify();
-        return res;
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public Fraction division (Fraction num) {
         int newNumerator = this.numerator * num.denominator;
         int newDenominator = this.denominator * num.numerator;
-        Fraction res = new Fraction(newNumerator, newDenominator);
-        //res.simplify();
-        return res;
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public int getNumerator() {

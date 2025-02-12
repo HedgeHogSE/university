@@ -12,6 +12,19 @@ public class Triangle extends Figure {
 
     }
 
+    public void shift (String coordinate, int step) {
+        if ("x".equalsIgnoreCase(coordinate)) {
+            point.setX(point.getX() + step);
+            point2.setX(point.getX() + step);
+            point3.setX(point.getX() + step);
+        }
+        else if ("y".equalsIgnoreCase(coordinate)) {
+            point.setY(point.getY() + step);
+            point2.setY(point.getY() + step);
+            point3.setY(point.getY() + step);
+        }
+    }
+
     public Point2D getPoint2() {
         return point2;
     }
