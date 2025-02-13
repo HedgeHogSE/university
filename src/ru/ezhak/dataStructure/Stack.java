@@ -1,4 +1,4 @@
-package ru.ezhak.dataStructure;
+/*package ru.ezhak.dataStructure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,4 +17,4 @@ public class Stack {
     public Object peek () {
         return list.getLast();
     }
-}
+}*/

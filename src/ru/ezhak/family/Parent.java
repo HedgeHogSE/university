@@ -1,4 +1,4 @@
-package ru.ezhak.family;
+/*package ru.ezhak.family;
 
 public class Parent {
     public String name;
@@ -18,4 +18,4 @@ public class Parent {
     public void setReaction(Reaction reaction) {
         this.reaction = reaction;
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package ru.ezhak.creature.humans.person.student;
+/*package ru.ezhak.creature.humans.person.student;
 
 import java.util.List;
 import java.util.Stack;
@@ -11,3 +11,4 @@ public interface History {
 
 
 }
+*/

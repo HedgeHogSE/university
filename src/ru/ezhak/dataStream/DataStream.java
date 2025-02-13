@@ -1,4 +1,4 @@
-package ru.ezhak.dataStream;
+/*package ru.ezhak.dataStream;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class DataStream <T> {
             }
         }
         return new DataStream<>(newList);
-    }*/
+    }
 
     public <P> DataStream<T> map(Apply<T, P> apply) {
         operations.add(list -> {
@@ -99,5 +99,5 @@ public class DataStream <T> {
     public String toString() {
         return list.toString();
     }
-}
+}*/
 

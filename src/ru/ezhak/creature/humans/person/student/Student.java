@@ -1,4 +1,4 @@
-package ru.ezhak.creature.humans.person.student;
+/*package ru.ezhak.creature.humans.person.student;
 
 import ru.ezhak.Comparable;
 
@@ -126,3 +126,4 @@ public class Student implements Comparable<Student> {
         }
     }
 }
+*/

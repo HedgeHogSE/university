@@ -1,4 +1,4 @@
-package ru.ezhak.family;
+/*package ru.ezhak.family;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,3 +23,4 @@ public class Student {
         return marks;
     }
 }
+*/
