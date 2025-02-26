@@ -2,12 +2,13 @@ package ru.ezhak.reflection.reflectionUtils;
 
 import ru.ezhak.math.geometry.lines.Line;
 import ru.ezhak.math.geometry.points.Point2D;
+import ru.ezhak.reflection.classesWithReflection.A;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReflectionUtils {
     public static List<Field> fieldCollection (Class<?> clazz) {
@@ -15,6 +16,16 @@ public class ReflectionUtils {
         clazz = clazz.getSuperclass();
         while (clazz != null) {
             result.addAll(List.of(clazz.getDeclaredFields()));
+            clazz = clazz.getSuperclass();
+        }
+        return result;
+    }
+
+    public static List<Method> methodCollection (Class<?> clazz) {
+        List<Method> result = new ArrayList<>(List.of(clazz.getDeclaredMethods()));
+        clazz = clazz.getSuperclass();
+        while (clazz != null && clazz != Object.class) {
+            result.addAll(List.of(clazz.getDeclaredMethods()));
             clazz = clazz.getSuperclass();
         }
         return result;
@@ -43,9 +54,51 @@ public class ReflectionUtils {
         Method[] methods = clazz.getDeclaredMethods();
         for (Method method : methods) {
             method.setAccessible(true);
-            method.invoke(clazz.getConstructor().newInstance(), o);
+            method.invoke(clazz.getConstructor().newInstance());
         }
     }
 
+    public static <T> T cache(T object) {
+        Class<?> clazz = object.getClass();
+        if (!clazz.isInterface() && clazz.getInterfaces().length == 0) {
+            return object;
+        }
 
+        return (T) Proxy.newProxyInstance(
+                clazz.getClassLoader(),
+                clazz.getInterfaces(),
+                new CacheHandler(object)
+        );
+    }
+
+    public static class CacheHandler implements InvocationHandler {
+        private final Object original;
+        private final Map<Method, Object> cache = new HashMap<>();
+        private int lastHash;
+
+        public CacheHandler(Object original) {
+            this.original = original;
+            this.lastHash = original.hashCode();
+        }
+
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+            if (original.hashCode() != lastHash) {
+                cache.clear();
+                lastHash = original.hashCode();
+            }
+
+            if (args == null || args.length == 0) {
+                if (cache.containsKey(method)) {
+                    return cache.get(method);
+                }
+
+                Object result = method.invoke(original);
+                cache.put(method, result);
+                return result;
+            }
+
+            return method.invoke(original, args);
+        }
+    }
 }

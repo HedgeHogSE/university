@@ -3,6 +3,8 @@ package ru.ezhak.reflection.classesWithReflection;
 import ru.ezhak.reflection.reflectionUtils.ReflectionUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public abstract class Entity {
@@ -11,16 +13,18 @@ public abstract class Entity {
         String result = this.getClass().getSimpleName() + "{";
 
         Class<?> clazz = this.getClass();
-        List<Field> fields = ReflectionUtils.fieldCollection(clazz);
-        for (Field field : fields) {
-            try {
-                field.setAccessible(true);
-                result += field.getName() + "=" + field.get(this) + ",";
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
+        List<Method> methods = ReflectionUtils.methodCollection(clazz);
+        for (Method method : methods) {
+            if (method.getName().startsWith("get")) {
+                String fieldName = method.getName().substring(3);
+                fieldName = Character.toLowerCase(fieldName.charAt(0)) + fieldName.substring(1);
+                try {
+                    result += fieldName + "=" + method.invoke(this) + ",";
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-
         return result.substring(0, result.length() - 1) + "}";
     }
 }
